@@ -3,8 +3,6 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class PlantList {
-
-
     private List<Plant> listOfPlants = new ArrayList<>();
 
     public void addPlant(Plant plant) {
@@ -56,7 +54,6 @@ public class PlantList {
                 Plant plant = new Plant(parts, lineNumber);
                 listOfPlants.add(plant);
             }
-
         } catch (FileNotFoundException e) {
             throw new PlantException("Soubor " + filePath + "nebylo možno otevřít:" + e.getMessage());
         }
@@ -71,9 +68,11 @@ public class PlantList {
             throw new PlantException("Soubor již existuje: " + e.getMessage());
         }
     }
-    public void showWateringInfo () {
+
+    public void showWateringInfo() {
+        System.out.println("Informace o zálivce:");
         for (Plant p : listOfPlants) {
-            System.out.println("Rostlina " + p.getName()+" byla naposledy zalita dne " + p.getWatering() + ", znovu by měla být zalita " + p.getWatering().plusDays(p.getFrequencyOfWatering()) + ".");
+            System.out.println("Rostlina " + p.getName() + " byla naposledy zalita dne " + p.getWatering() + ", znovu by měla být zalita " + p.getWatering().plusDays(p.getFrequencyOfWatering()) + ".");
         }
     }
 }
