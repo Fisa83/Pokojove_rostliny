@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) throws PlantException {
+    public static void main(String[] args){
 
         PlantList plantList = new PlantList();
 
